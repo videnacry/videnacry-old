@@ -2,6 +2,7 @@
 <html lang="us">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>jQuery UI Example Page</title>
 	<link href="jquery-ui.css" rel="stylesheet">
 	<link href="plugins\slick-1.8.1\slick\slick.css" rel="stylesheet">
@@ -12,12 +13,64 @@
 	</style>
 </head>
 <body>
+<div class="background" style="background-image: url(./public/img/dinosaurflip.jpg),  url(./public/img/dinosaur.jpg)"></div>
+<!--------------------------------------------------------NAV-------------------------------------------------------------->
 
-<h1>Last draws!</h1>
+
+<section class="nav-s">
+	<nav>
+		<li>Home</li>
+		<li>Biography</li>
+		<li>Gallery</li>
+		<li>Contact</li>
+	</nav>
+</section>
+
+
+
+<button class="navbar-toggler ui-button ui-corner-all">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</button>
+
+
+
+
+<!-----------------------------------------------------CARROUSEL----------------------------------------------------------->
+
 
 <div id="carrousel"></div>
 <br/>
 <div id="carrousel-nav" class="carrousel-nav"></div>
+<br/>
+
+
+
+
+<!-----------------------------------------------------BIOGRAPHY----------------------------------------------------------------->
+
+<!-- <div class="biography-card ui-widget-content ui-corner-all">
+	<h1>Berón Gamboa</h1>
+	<hr/>
+	<h2>Biography</h2>
+	<button class="ui-button"><b>See it</b></button>
+	<img class="ui-corner-all" src="./public/img/biography/me.png"/>
+</div> -->
+<article id="biography" title="Berón Gamboa">
+	<header>Doodle artist</header>
+	<p>I love to draw new forms, since i remember, i wanted to see in the paper what should i draw.</p>
+	<p>I heared a lot about magic, ocultism, ghosts, demons, angels, mind power, now that are my stronger inspiration.</p>
+	<p>I want to draw in near future meaningfull draws, share ideas in such an incredible draw, so it becomes easy to remember.</p>
+</article>
+
+
+
+
+
+<div class="backdrop"></div>
 
 <script src="external/jquery/jquery.js"></script>
 <!-- Magnific Popup core JS file -->
@@ -25,15 +78,23 @@
 <script src="jquery-ui.js"></script>
 <script src="plugins\slick-1.8.1\slick\slick.min.js"></script>
 <script>
-//--------------------------CARROUSEL-------------------------------------
-const carrouselImgs = ['magic', 'panther', 'snake', 'goat', 'condor', 'bull']
+
+
+
+
+
+
+//--------------------------------------------CARROUSEL-----------------------------------------------------------------------
+
+
+const carrouselImgs = ['panther', 'snake', 'goat', 'condor', 'bull']
 carrouselImgs.forEach(img => {
-	const imgElmt = $('<div class="img"></div>').css('background-image', 'url(./public/img/' + img + '.jpg')
+	const imgElmt = $('<img class="img" src="./public/img/' + img + '.jpg"/>')
 	$('#carrousel').append(imgElmt)
 	$('#carrousel-nav').append(imgElmt.clone())
 })
 $('#carrousel .img').each(function() {
-	const elmt = $(this).clone().css({height: '80vh'})
+	const elmt = $(this).clone().css({height: '90vh', display: 'block', margin: 'auto'})
 	$(this).magnificPopup({
 		type: 'image',
 		closeOnContentClick: true,
@@ -46,62 +107,81 @@ $('#carrousel .img').each(function() {
 	});
 })
 
-$('#carrousel .img, #carrousel-nav .img')
-	.css({height: '50vmin'})
-
-$('#carrousel-nav .img')
-	.css({height: '10vmin'})
-
 $("#carrousel").slick({
-	dots: true,
-	arrows: true,
+	dots: false,
+	arrows: false,
+	infinite: true,
+	speed: 300,
+	slidesToShow: 3,
+	slidesToScroll: 1,
+	initialSlide: 2,
+	autoplay: true,
+	centerMode: true,
+	focusOnSelect: true,
+	variableWidth: true,
+	autoplay: false
+});
+
+$("#carrousel-nav").css('width', '95vmin').slick({
+	dots: false,
+	arrows: false,
 	infinite: true,
 	speed: 300,
 	slidesToShow: 5,
 	slidesToScroll: 1,
-	autoplay: true,
 	centerMode: true,
 	focusOnSelect: true,
-	responsive: [
-  	{
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3
-      }
-    },
-    {
-      breakpoint: 750,
-      settings: {
-		arrows: false,
-		focusOnSelect: false,
-		dots: false,
-		autoplay: false,
-        slidesToShow: 1,
-		fade: true
-      }
-    }
-  ]
-});
-
-$("#carrousel-nav").slick({
+	autoplay: true,
+	asNavFor: '#carrousel',
 	responsive: [
 		{
-			breakpoint: 750,
+			breakpoint: 450,
 			settings: {
-				dots: true,
-				arrows: true,
-				infinite: true,
-				speed: 300,
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				centerMode: true,
-				focusOnSelect: true,
-				autoplay: true,
-				asNavFor: '#carrousel'			
+				slidesToShow: 3
 			}
 		}
 	]
 });
+
+
+
+
+//-------------------------------------------------------BYOGRAPHY-----------------------------------------------
+
+
+$('#biography').dialog({
+	close: function() {
+		$(this).dialog('close')
+		$('.backdrop').hide()
+	}
+})
+
+
+
+
+
+
+//-------------------------------------------------------BACKDROP------------------------------------------------
+
+
+const backdropImgs = ['Awareness', 'Environment', 'Mage', 'Role']
+backdropImgs.forEach(img => 
+	$('.backdrop').append(
+		$('<div class="img"></div>').css({backgroundImage: 'url(./public/img/backdrop/' + img + '.jpg'})
+	)
+)
+$('.backdrop').slick({
+	autoplay: true,
+	vertical: true,
+	slidesToScroll: 1,
+	slidesToShow: 1,
+	speed: 300,
+	infinite: true,
+	arrows: false,
+	dots: false
+})
+
+
 </script>
 </body>
 </html>
