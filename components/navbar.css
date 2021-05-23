@@ -1,0 +1,73 @@
+
+.navbar-s {
+    min-width: 30%;
+    height: 100%;
+    padding: 5vmin;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition-property: transform;
+    transition-duration: 1s;
+    transform: translateX(-100%);
+    background-color: blanchedalmond;
+    background-image: url(../public/img/condor.jpg);
+    background-size: auto 100%;
+    background-position: center top;
+    line-height: 1.5em;
+    font-size: 5vmin;
+    font-weight: bold;
+    text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white;
+}
+.navbar-s .close {
+    width: fit-content;
+    height: fit-content;
+    border: unset;
+    padding: 0;
+    position: absolute;
+    top: 1vmin;
+    right: 1vmin;
+    line-height: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white;
+    background-color: transparent;
+    cursor: pointer;
+}
+.navbar-s ul {
+    margin: unset;
+    padding: unset;
+    list-style: none;
+}
+.navbar-s a{
+    cursor: pointer;
+}
+.navbar-s.show {
+    transform: translateX(0);
+}
+.navbar-toggler{
+    position: relative;
+}
+.navbar-toggler ul {
+    margin: unset;
+    padding: unset;
+    list-style: none;
+}
+.navbar-toggler li {
+    width: 20px;
+    height: 5px;
+    margin: 1px;
+    background-color: black;
+}
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center right;
+    opacity: .5;
+    filter: blur(1px);
+}

@@ -8,20 +8,29 @@
 	<title>jQuery UI Example Page</title>
 
 
+	<!-- JQUERY-UI CSS file-->
 	<link href="jquery-ui.css" rel="stylesheet">
+
+	<!-- Slick CSS files-->
 	<link href="plugins\slick-1.8.1\slick\slick.css" rel="stylesheet">
 	<link href="plugins\slick-1.8.1\slick\slick-theme.css" rel="stylesheet">
+
+
+	<!-- Own CSS files -->
 	<link href="./index.css" rel="stylesheet">
+	<link href="./components/navbar.css" rel="stylesheet">
+
 	<!-- Magnific Popup core CSS file -->
 	<link rel="stylesheet" href="plugins/Magnific-Popup-master/dist/magnific-popup.css">
-	</style>
 	
-	
-	
+
+	<!-- JQUERY & JQUERY-UI JS files-->
 	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	
+
 	<!-- Magnific Popup core JS file -->
 	<script src="plugins/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
-	<script src="jquery-ui.js"></script>
 	<script src="plugins\slick-1.8.1\slick\slick.min.js"></script>
 	
 	
@@ -30,12 +39,7 @@
 <body>
 
 
-<script>//--------------------------------------------BACKDROP & BACKGROND-----------------------------------------------------
-
-const backdropElmt = $('<div class="backdrop"><div/>').css({backgroundImage:"url(./public/img/condor.jpg)"})
-
-</script>
-	
+<!-------------------------------------------------------BACKGROUND---------------------------------------------------------->
 
 <div class="background" style="background-image: url(./public/img/dinosaurflip.jpg),  url(./public/img/dinosaur.jpg)"></div>
 
@@ -45,44 +49,14 @@ const backdropElmt = $('<div class="backdrop"><div/>').css({backgroundImage:"url
 <!--------------------------------------------------------NAVBAR-------------------------------------------------------------->
 
 
-<aside class="navbar-s">
-	<nav>
-		<button class="close">&times;</button>
-		<ul>
-			<li><a>Home</a></li>
-			<li><a>Biography</a></li>
-			<li><a>Gallery</a></li>
-			<li><a>Contact</a></li>
-		</ul>
-	</nav>
-</aside>
-
-
-
-<button class="navbar-toggler ui-button ui-corner-all">
-	<ul>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</button>
-
-
+<script src="./components/navbar.js"></script>
 <script>
 
-	function hideNavbar() {
-		$('.navbar-s').removeClass('show')
-		backdropElmt.off('click', hideNavbar).detach()
-	}
-
-	$('.navbar-toggler').first().click(function() {
-		$('.navbar-s').addClass('show').before(backdropElmt.on('click', hideNavbar))
-	})
-
-	$('.navbar-s .close').click(hideNavbar)
-
+$('body').append(Navbar.html)
+Navbar.init()
 
 </script>
+
 
 
 
