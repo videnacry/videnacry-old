@@ -1,0 +1,92 @@
+body{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+.biography-c .carrousel-vertical {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.biography-c .navbar-toggler-space {
+    width: 100%;
+    height: 40px;
+}
+.backdrop-blur-y, .backdrop-blur-x {
+    position: absolute;
+    backdrop-filter: blur(3px);
+}
+.backdrop-blur-y {
+    width: calc(100% + 12vmin);
+    height: 12vmin;
+}
+.backdrop-blur-x {
+    width: 7vmin;
+    height: 100%;
+}
+.biography-s {
+    margin: 5vmin;
+    border: unset;
+    padding: 3vmin;
+    position: relative;
+    background-color: #ffffff80;
+}
+.biography-s h1 {
+    font-size: 3em;
+}
+.biography-s section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.biography-s section article {
+    flex-grow: 1;
+    min-width: 280px;
+    width: 15vmin;
+}
+.biography-s .img-space {
+    height: calc(70vmin - 200px);
+    width: 85vmin;
+}
+.biography-s img {
+    height: 70vmin;
+    margin: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+@media screen and (max-width: 1000px) {
+    .biography-s section article {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .biography-s img {
+        max-width: 90%;
+        height: auto;
+        top: calc(98px + 5vmin);
+    }
+    .biography-s .img-space {
+        max-width: 90%;
+        max-height: 50vw;
+        height: calc(70vmin - 8em);
+    }
+}
+@media screen and (max-width: 460px) {
+    .biography-s img {
+        max-width: 90%;
+        height: 70vmin;
+        height: auto;
+        margin: 5px;
+        position: absolute;
+        top: calc(98px + 3em + 8vmin);
+        right: 0;
+    }
+}
