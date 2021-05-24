@@ -1,25 +1,26 @@
-
-.navbar-s {
+.navbar-c {
+    display: contents;
+}
+.navbar-c .navbar-s {
     min-width: 30%;
     height: 100%;
     padding: 5vmin;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     transition-property: transform;
     transition-duration: 1s;
     transform: translateX(-100%);
     background-color: blanchedalmond;
-    background-image: url(../public/img/condor.jpg);
     background-size: auto 100%;
     background-position: center top;
     line-height: 1.5em;
     font-size: 5vmin;
     font-weight: bold;
-    text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white;
+    color: white;
 }
-.navbar-s .close {
+.navbar-c .navbar-s .close {
     width: fit-content;
     height: fit-content;
     border: unset;
@@ -30,36 +31,50 @@
     line-height: 0.5em;
     font-size: 1.2em;
     font-weight: bold;
-    text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white;
+    color: white;
     background-color: transparent;
     cursor: pointer;
 }
-.navbar-s ul {
+.navbar-c .navbar-s.text-light, .navbar-c .navbar-s.text-light .close{
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+}
+.navbar-c .navbar-s.text-danger, .navbar-c .navbar-s.text-danger .close{
+    text-shadow: 1px 1px red, 1px -1px red, -1px 1px red, -1px -1px red;
+}
+.navbar-c .navbar-s.text-success, .navbar-c .navbar-s.text-success .close{
+    text-shadow: 1px 1px green, 1px -1px green, -1px 1px green, -1px -1px green;
+}
+.navbar-c .navbar-s.text-primary, .navbar-c .navbar-s.text-primary .close{
+    text-shadow: 1px 1px blue, 1px -1px blue, -1px 1px blue, -1px -1px blue;
+}
+.navbar-c .navbar-s ul {
     margin: unset;
     padding: unset;
     list-style: none;
 }
-.navbar-s a{
+.navbar-c .navbar-s a{
     cursor: pointer;
 }
-.navbar-s.show {
+.navbar-c .navbar-s.show {
     transform: translateX(0);
 }
-.navbar-toggler{
-    position: relative;
+.navbar-c .toggler.fixed{
+    position: fixed;
+    top: 10px;
+    z-index: 1;
 }
-.navbar-toggler ul {
+.navbar-c .toggler ul {
     margin: unset;
     padding: unset;
     list-style: none;
 }
-.navbar-toggler li {
+.navbar-c .toggler li {
     width: 20px;
     height: 5px;
     margin: 1px;
     background-color: black;
 }
-.backdrop {
+.navbar-c .backdrop {
     width: 100vw;
     height: 100vh;
     position: fixed;
