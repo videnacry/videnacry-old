@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Videnacry - Gallery</title>
+
+
+	<!-- JQUERY-UI CSS file-->
+	<link href="jquery-ui.css" rel="stylesheet">
+
+	<!-- Slick CSS files-->
+	<link href="plugins\slick-1.8.1\slick\slick.css" rel="stylesheet">
+	<link href="plugins\slick-1.8.1\slick\slick-theme.css" rel="stylesheet">
+
+
+	<!-- Own CSS files -->
+	<link href="./gallery.css" rel="stylesheet">
+	<link href="./components/navbar.css" rel="stylesheet">
+
+
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="plugins/Magnific-Popup-master/dist/magnific-popup.css">
+	
+
+	<!-- JQUERY & JQUERY-UI JS files-->
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	
+
+	<!-- Magnific Popup core JS file -->
+	<script src="plugins/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+	<script src="plugins\slick-1.8.1\slick\slick.min.js"></script>
+	
+	
+</head>
+<body class="gallery-p ui-widget" style="background-image: url(./public//img/landscape/Calamardo.jpg);">
+
+
+
+<!--------------------------------------------------------NAVBAR-------------------------------------------------------------->
+<div class="navbar-toggler_space"></div>
+
+<script src="./components/navbar.js"></script>
+<script>
+
+$('body').append(Navbar.html)
+Navbar.init({fixed: true, variant: 'text-success', backdropImg: './public/img/backdrop/Role.jpg'})
+
+</script>
+
+
+
+<!--------------------------------------------------------GALLERY------------------------------------------------------------->
+
+
+<main id="gallery-s">
+    <ul role="tablist">
+        <li role="tab"><a href="#entity">Entity</a></li>
+        <li role="tab"><a href="#animal">Animal</a></li>
+        <li role="tab"><a href="#magic">Magic</a></li>
+        <li role="tab"><a href="#3d">3D </a></li>
+    </ul>
+    <section id="entity" class="gallery-table ui-corner-all" role="table"></section>
+    <section id="animal" class="gallery-table ui-corner-all" role="table"></section>
+    <section id="magic" class="gallery-table ui-corner-all" role="table"></section>
+    <section id="3d" class="gallery-table ui-corner-all" role="table"></section>
+</main>
+
+<script>
+const entitiesImg = ['ANIMAL', 'DEMON', 'GOD', 'PERSON']
+entitiesImg.forEach(img => {
+    const imgPath = './public/img/entity/' + img + '.jpg'
+    const galleryItem = $('<div class="gallery-item"></div>')
+        .css({backgroundImage: 'url(' + imgPath + ')'})
+
+    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
+    $('#entity').append(galleryItem)
+})
+
+const animalsImg = ['bull', 'panther', 'snake', 'goat', 'condor']
+animalsImg.forEach(img => {
+    const imgPath = './public/img/animal/' + img + '.jpg'
+    const galleryItem = $('<div class="gallery-item"></div>')
+        .css({backgroundImage: 'url(' + imgPath + ')'})
+
+    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
+    $('#animal').append(galleryItem)
+})
+
+const magicImg = ['Environment', 'Mage', 'Awareness', 'Role']
+magicImg.forEach(img => {
+    const imgPath = './public/img/magic/' + img + '.jpg'
+    const galleryItem = $('<div class="gallery-item"></div>')
+        .css({backgroundImage: 'url(' + imgPath + ')'})
+
+    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
+    $('#magic').append(galleryItem)
+})
+
+const threeDimensionImg = ['appartment', 'cabin', 'desk', 'characters', 'bat-monster', 'animals', 'watch-tower']
+threeDimensionImg.forEach(img => {
+    const imgPath = './public/img/3d/' + img + '.jpg'
+    const galleryItem = $('<div class="gallery-item"></div>')
+        .css({backgroundImage: 'url(' + imgPath + ')'})
+
+    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
+    $('#3d').append(galleryItem)
+})
+
+$('.gallery-p .gallery-item img').each(function() {
+        if (this.src.length > 0) {
+            $(this).magnificPopup({
+                type: 'image',
+                items: {
+                    src: this.src
+                }
+            })
+        }
+})
+
+$('#gallery-s').tabs()
+</script>
+
+
+
+</body>
+</html>
