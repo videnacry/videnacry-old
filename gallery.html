@@ -17,6 +17,7 @@
 	<!-- Own CSS files -->
 	<link href="./gallery.css" rel="stylesheet">
 	<link href="./components/navbar.css" rel="stylesheet">
+    <link href="./components/gallery.css" rel="stylesheet">
 
 
 	<!-- Magnific Popup core CSS file -->
@@ -67,56 +68,32 @@ Navbar.init({fixed: true, variant: 'text-success', backdropImg: './public/img/ba
     <section id="3d" class="gallery-table ui-corner-all" role="table"></section>
 </main>
 
-<script>
-const entitiesImg = ['lion', 'bactery', 'human', 'three']
-entitiesImg.forEach(img => {
-    const imgPath = './public/img/entity/' + img + '.jpg'
-    const galleryItem = $('<div class="gallery-item"></div>')
-        .css({backgroundImage: 'url(' + imgPath + ')'})
 
-    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
-    $('#entity').append(galleryItem)
+<script src='./components/gallery.js'></script>
+<script>
+
+const entitiesImg = ['lion', 'bactery', 'human', 'three']
+Gallery.build({
+    imagesPath: entitiesImg.map(img => './public/img/entity/' + img + '.jpg'),
+    selector: '.gallery-p #gallery-s #entity'
 })
 
 const animalsImg = ['bull', 'panther', 'snake', 'goat', 'condor']
-animalsImg.forEach(img => {
-    const imgPath = './public/img/animal/' + img + '.jpg'
-    const galleryItem = $('<div class="gallery-item"></div>')
-        .css({backgroundImage: 'url(' + imgPath + ')'})
-
-    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
-    $('#animal').append(galleryItem)
+Gallery.build({
+    imagesPath: animalsImg.map(img => './public/img/animal/' + img + '.jpg'),
+    selector: '.gallery-p #gallery-s #animal'
 })
 
-const magicImg = ['Environment', 'Mage', 'Awareness', 'Role']
-magicImg.forEach(img => {
-    const imgPath = './public/img/magic/' + img + '.jpg'
-    const galleryItem = $('<div class="gallery-item"></div>')
-        .css({backgroundImage: 'url(' + imgPath + ')'})
-
-    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
-    $('#magic').append(galleryItem)
+const magicImgs = ['Environment', 'Mage', 'Awareness', 'Role']
+Gallery.build({
+    imagesPath: magicImgs.map(img => './public/img/magic/' + img + '.jpg'),
+    selector: '.gallery-p #gallery-s #magic'
 })
 
-const threeDimensionImg = ['appartment', 'cabin', 'desk', 'characters', 'bat-monster', 'animals', 'watch-tower']
-threeDimensionImg.forEach(img => {
-    const imgPath = './public/img/3d/' + img + '.jpg'
-    const galleryItem = $('<div class="gallery-item"></div>')
-        .css({backgroundImage: 'url(' + imgPath + ')'})
-
-    galleryItem.append('<div class="gallery-item-blur"><img class="space"/><img src="' + imgPath + '"/><img class="space"/></div>')
-    $('#3d').append(galleryItem)
-})
-
-$('.gallery-p .gallery-item img').each(function() {
-        if (this.src.length > 0) {
-            $(this).magnificPopup({
-                type: 'image',
-                items: {
-                    src: this.src
-                }
-            })
-        }
+const threeDimensionImgs = ['appartment', 'cabin', 'desk', 'characters', 'bat-monster', 'animals', 'watch-tower']
+Gallery.build({
+    imagesPath: threeDimensionImgs.map(img => './public/img/3d/' + img + '.jpg'),
+    selector: '.gallery-p #gallery-s #3d'
 })
 
 $('#gallery-s').tabs()

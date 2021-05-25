@@ -1,5 +1,5 @@
 .gallery-p {
-    background-position: center;
+    background-position-x: center;
 }
 .gallery-p .navbar-toggler_space {
     height: 50px;
@@ -13,7 +13,7 @@
     box-shadow: 0 0 1vw;
     backdrop-filter: blur(2px) brightness(1.2);
 }
-.gallery-p .gallery-table {
+/* .gallery-p .gallery-table {
     padding: 2vmin 0 0 0;
     display: flex;
     flex-wrap: wrap;
@@ -44,4 +44,4 @@
 .gallery-p .gallery-table .space {
     opacity: 0;
     flex-grow: 3;
-}
+} */
