@@ -7,10 +7,10 @@ Navbar.html = $(`
 	<nav>
 		<button class="close">&times;</button>
 		<ul>
-			<li><a>Home</a></li>
-			<li><a>Biography</a></li>
-			<li><a>Gallery</a></li>
-			<li><a>Contact</a></li>
+			<li><a href="./index.html">New Project</a></li>
+			<li><a href="./biography.html">Biography</a></li>
+			<li><a href="./gallery.html">Gallery</a></li>
+			<li><a href="./contact.html">Contact</a></li>
 		</ul>
 	</nav>
 </aside>

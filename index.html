@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
-	<title>jQuery UI Example Page</title>
+	<title>Videnacry - New</title>
 
 
 	<!-- JQUERY-UI CSS file-->
@@ -19,6 +19,7 @@
 	<!-- Own CSS files -->
 	<link href="./index.css" rel="stylesheet">
 	<link href="./components/navbar.css" rel="stylesheet">
+
 
 	<!-- Magnific Popup core CSS file -->
 	<link rel="stylesheet" href="plugins/Magnific-Popup-master/dist/magnific-popup.css">
@@ -36,7 +37,7 @@
 	
 	
 </head>
-<body>
+<body class="ui-widget">
 
 
 <!-------------------------------------------------------BACKGROUND---------------------------------------------------------->
@@ -53,7 +54,7 @@
 <script>
 
 $('body').append(Navbar.html)
-Navbar.init()
+Navbar.init({})
 
 </script>
 
@@ -128,7 +129,6 @@ $("#carrousel-nav").css('width', '95vmin').slick({
 		}
 	]
 });
-
 
 
 </script>

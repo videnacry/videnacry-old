@@ -53,6 +53,8 @@
     list-style: none;
 }
 .navbar-c .navbar-s a{
+    color: inherit;
+    text-decoration: none;
     cursor: pointer;
 }
 .navbar-c .navbar-s.show {
