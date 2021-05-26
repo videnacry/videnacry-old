@@ -1,0 +1,28 @@
+.software-p {
+    background-position-x: center;
+}
+.software-p .navbar-toggler_space {
+    width: 100%;
+    height: 40px;
+}
+.software-p .accordion>article {
+    display: flex;
+    flex-wrap: wrap;
+}
+.software-p .accordion>article>div {
+    min-width: 220px;
+    width: 25%;
+    margin: 2vmin;
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+.software-p .accordion>article a {
+    word-break: break-all;
+}
+.software-p .accordion>article>.screenshots {
+    overflow: auto;
+    max-height: 60vh;
+    width: 50%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}

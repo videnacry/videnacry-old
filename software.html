@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Videnacry - Software</title>
+
+
+	<!-- JQUERY-UI CSS file-->
+	<link href="jquery-ui.css" rel="stylesheet">
+
+	<!-- Slick CSS files-->
+	<link href="plugins\slick-1.8.1\slick\slick.css" rel="stylesheet">
+	<link href="plugins\slick-1.8.1\slick\slick-theme.css" rel="stylesheet">
+
+
+	<!-- Own CSS files -->
+	<link href="./software.css" rel="stylesheet">
+	<link href="./components/navbar.css" rel="stylesheet">
+	<link href="./components/gallery.css" rel="stylesheet">
+
+
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="plugins/Magnific-Popup-master/dist/magnific-popup.css">
+	
+
+	<!-- JQUERY & JQUERY-UI JS files-->
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	
+
+	<!-- Magnific Popup core JS file -->
+	<script src="plugins/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+	<script src="plugins\slick-1.8.1\slick\slick.min.js"></script>
+	
+	
+</head>
+<body class="software-p ui-widget" style="background-image: url(./public//img/landscape/Penguin.jpg);">
+
+
+
+<!--------------------------------------------------------NAVBAR-------------------------------------------------------------->
+<div class="navbar-toggler_space"></div>
+
+<script src="./components/navbar.js"></script>
+<script>
+
+$('body').append(Navbar.html)
+Navbar.init({fixed: true, variant: 'text-primary', backdropImg: './public/img/backdrop/Mage.jpg'})
+
+</script>
+
+
+
+<!-------------------------------------------------------ACCORDION------------------------------------------------------------>
+<main class="accordion">
+    <h3>CODESHIP</h3>
+    <article class="codeship">
+        <div>
+            <a href="http://codeship-net.herokuapp.com/">http://codeship-net.herokuapp.com/</a>
+            <p>4 sections project: file system, session API, store/profile page, 3d game.</p>
+            <h4>Technologies:</h4>
+            <h5>Frontend:</h5>
+            React, ThreeJs, CSS
+            <h5>Backend:</h5>
+            NodeJs, Express, Mongo
+        </div>
+        <div class="screenshots"></div>
+    </article>
+    <h3>JS/JQUERY EXERCISES</h3>
+    <article class="js-jquery_exercises">
+        <div>
+            <a href="https://js-jquery-exercises.netlify.app/">https://js-jquery-exercises.netlify.app/</a>
+            <p>Exercises of js and jquery</p>
+            <h4>Technologies</h4>
+            <h5>Frontend:</h5>
+            React, Bootstrap, react-redux, Jquery, Jquery-UI, CodeMirror
+        </div>
+        <div class="screenshots"></div>
+    </article>
+    <h3>HUASINDA</h3>
+    <article class="huasinda">
+        <div>
+            <a href="https://huasinda.herokuapp.com/">https://huasinda.herokuapp.com/</a>
+            <p>Landing page for webinars with ads</p>
+            <h4>Technologies</h4>
+            <h5>Frontend:</h5>
+            React, CSS, Puppeter
+        </div>
+        <div class="screenshots"></div>
+    </article>
+    <h3>COLD SANCTUARY</h3>
+    <article class="cold-sanctuary">
+        <div>
+            <a href="https://github.com/videnacry/New-Unity-Project-3-">https://github.com/videnacry/New-Unity-Project-3-</a>
+            <p>Video game not in web yet!</p>
+            <h4>Technologies</h4>
+            C#, Unity
+        </div>
+        <div class="screenshots"></div>
+    </article>
+</main>
+
+<script src="./components/gallery.js"></script>
+<script>
+
+const codeshipImgs = ['avatar', 'quest', 'code', 'profile', 'store']
+Gallery.build({
+    imagesPath: codeshipImgs.map(img => './public/img/codeship/' + img + '.jpg'),
+    selector: '.software-p .codeship .screenshots'   
+})
+const jsExercisesImgs = ['code', 'jquery-form', 'loop', 'function']
+Gallery.build({
+    imagesPath: jsExercisesImgs.map(img => './public/img/js-jquery_exercises/' + img + '.jpg'),
+    selector: '.software-p .js-jquery_exercises .screenshots'   
+})
+const huasindaImgs = ['home', 'webinar', 'offer', 'cart', 'ads']
+Gallery.build({
+    imagesPath: huasindaImgs.map(img => './public/img/huasinda/' + img + '.jpg'),
+    selector: '.software-p .huasinda .screenshots'   
+})
+const coldSanctuaryImgs = ['bunny-hunt', 'cabin', 'drive', 'eurocopter']
+Gallery.build({
+    imagesPath: coldSanctuaryImgs.map(img => './public/img/cold-sanctuary/' + img + '.jpg'),
+    selector: '.software-p .cold-sanctuary .screenshots'   
+})
+
+
+
+</script>
+
+<script>
+    
+$('.software-p .accordion').accordion({
+    collapsible: true,
+    heightStyle: "content"
+})
+
+
+</script>
+
+</body>
+</html>
