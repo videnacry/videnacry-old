@@ -10,7 +10,7 @@ Navbar.html = $(`
 			<li><a href="./index.html">New Project</a></li>
 			<li><a href="./biography.html">Biography</a></li>
 			<li><a href="./gallery.html">Gallery</a></li>
-			<li><a href="./contact.html">Contact</a></li>
+			<li><a href="./software.html">Software</a></li>
 		</ul>
 	</nav>
 </aside>
