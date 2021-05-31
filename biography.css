@@ -7,80 +7,130 @@ body{
     padding: 10px;
     position: relative;
 }
-.biography-c .carrousel-vertical {
+.biography-p .carrousel-vertical {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
 }
-.biography-c .navbar-toggler-space {
+.biography-p .navbar-toggler-space {
     width: 100%;
     height: 40px;
 }
-.backdrop-blur-y, .backdrop-blur-x {
+.biography-p .backdrop-blur-y, .backdrop-blur-x {
     position: absolute;
     backdrop-filter: blur(3px);
 }
-.backdrop-blur-y {
+.biography-p .backdrop-blur-y {
     width: calc(100% + 12vmin);
     height: 12vmin;
 }
-.backdrop-blur-x {
+.biography-p .backdrop-blur-x {
     width: 7vmin;
     height: 100%;
 }
-.biography-s {
+.biography-p .biography-s {
     margin: 5vmin;
     border: unset;
     padding: 3vmin;
     position: relative;
     background-color: #ffffff80;
+    box-shadow: 0 0 5vmin black;
 }
-.biography-s h1 {
+.biography-p .biography-s h1 {
     font-size: 3em;
 }
-.biography-s section {
+.biography-p .biography-s section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
     justify-content: space-between;
 }
-.biography-s section article {
+.biography-p .biography-s section article {
     flex-grow: 1;
     min-width: 280px;
     width: 15vmin;
 }
-.biography-s .img-space {
+.biography-p .biography-s .img-space {
     height: calc(70vmin - 200px);
     width: 85vmin;
 }
-.biography-s img {
+.biography-p .biography-s img {
     height: 70vmin;
     margin: 5px;
     position: absolute;
     top: 0;
     right: 0;
 }
+.biography-p .form-group-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.biography-p .form-group-row>*{
+    flex-grow: 1;
+    width: 200px;
+}
+.biography-p .alert-default {
+    display: block;
+}
+.biography-p .alert-default p {
+    padding: 10px;
+}
+.biography-p .alert-highlight {
+    padding: 10px;
+    padding-bottom: 0;
+    display: block;
+}
+.biography-p .alert-highlight p {
+    margin: 0;
+    padding: 10px;
+}
+.biography-p .input-text-group {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 0;
+    border: unset;
+    position: relative;
+    display: flex;
+}
+.biography-p .input-text-group label {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    color: gray;
+}
+.biography-p .input-text-group input, .biography-p .input-text-group textarea {
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    padding: 10px;
+    padding-top: 20px;
+}
+.biography-p .datepicker{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
 @media screen and (max-width: 1000px) {
-    .biography-s section article {
+    .biography-p .biography-s section article {
         width: 100%;
     }
 }
 @media screen and (max-width: 800px) {
-    .biography-s img {
+    .biography-p .biography-s img {
         max-width: 90%;
         height: auto;
         top: calc(98px + 5vmin);
     }
-    .biography-s .img-space {
+    .biography-p .biography-s .img-space {
         max-width: 90%;
         max-height: 50vw;
         height: calc(70vmin - 8em);
     }
 }
 @media screen and (max-width: 460px) {
-    .biography-s img {
+    .biography-p .biography-s img {
         max-width: 90%;
         height: 70vmin;
         height: auto;
