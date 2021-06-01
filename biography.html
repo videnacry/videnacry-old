@@ -41,6 +41,13 @@
 	<!-- Fine Uploader JS file-->
 	<script src="./plugins/fine-uploader/fine-uploader.min.js"></script>
 
+    
+    <!-- Own global JS files -->
+    <script src="./config.js"></script>
+    <script>
+        const urls = getUrls()
+    </script>
+
 
 
 </head>
@@ -117,16 +124,16 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
     <div class="form-group-row">
         <fieldset class="input-text-group">
             <label for="contact-name"><small>Name</small></label>
-            <input id="contact-name" type="text" class="ui-corner-all">
+            <input name="name" id="contact-name" type="text" class="ui-corner-all">
         </fieldset>
         <fieldset class="input-text-group">
             <label for="contact-email"><small>Email</small></label>
-            <input id="contact-email" type="text" class="ui-corner-all">
+            <input name="email" id="contact-email" type="text" class="ui-corner-all">
         </fieldset>
     </div>
     <fieldset class="input-text-group">
         <label for="contact-message"><small>Message</small></label>
-        <textarea id="contact-message" class="ui-corner-all"></textarea>
+        <textarea name="message" id="contact-message" class="ui-corner-all"></textarea>
     </fieldset>
     <h3>Expected delivery date</h3>
     <label class="alert-highlight">
@@ -142,10 +149,12 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
     <label class="alert-default">
         <p class="ui-state-error ui-corner-all ui-helper-hidden">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
     </label>
+    <label class="alert-default">
+        <p class="ui-corner-all ui-widget-header ui-helper-hidden">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
+    </label>
     <br/>
-    <input class="ui-button" type="submit" value="Send">
+    <input class="ui-button ui-state-disabled" type="submit" value="Send" disabled>
 </form>
-
 <!--
     Read the "Getting Started Guide" at http://docs.fineuploader.com/quickstart/01-getting-started.html
     if you are not yet familiar with Fine Uploader UI.
@@ -182,24 +191,7 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
                     <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
                     Retry
                 </button>
-
-                <div class="qq-file-info">
-                    <div class="qq-file-name">
-                        <span class="qq-upload-file-selector qq-upload-file"></span>
-                        <span class="qq-edit-filename-icon-selector qq-btn qq-edit-filename-icon" aria-label="Edit filename"></span>
-                    </div>
-                    <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
-                    <span class="qq-upload-size-selector qq-upload-size"></span>
-                    <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
-                        <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
-                    </button>
-                    <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
-                        <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
-                    </button>
-                    <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
-                        <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
-                    </button>
-                </div>
+                
             </li>
         </ul>
 
@@ -230,13 +222,47 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
 </script>
 
 <script>
+    fetch(urls.appointment.getStatus, {method: 'GET'})
+    .then(res => res.json())
+    .then(({isFull, message}) => {
+        if (!isFull) return $('input:submit').prop('disabled', false).removeClass('ui-state-disabled')
+        $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message)
+    })
+    .catch(({message, details}) => $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message))
+    const canceledFileIds = []
 	$('.biography-p form .datepicker').datepicker()
 	const uploader = new qq.FineUploader({
 		element: $('.biography-p form .file-gallery').get(0),
+        callbacks: {
+            onCancel: function(id) {
+                canceledFileIds.push(id)
+            }
+        },
 		request: {
-			endpoint: 'https://www.google.com/'
-		}
+            autoUpload: false,
+            inputName: 'images'
+		},
+        form: {
+            element: $('form').get(0),
+            interceptSubmit: false
+        }
 	})
+    $('form').submit(e => {
+        e.preventDefault()
+        $('.alert-default .ui-state-error').addClass('ui-helper-hidden')
+        $('.alert-default .ui-widget-header').addClass('ui-helper-hidden')
+        const files = uploader.getUploads().filter((elmt, idx) => !canceledFileIds.includes(idx))
+        const formData = new FormData(document.forms[0])
+        formData.delete('images')
+        files.forEach(file => formData.append('images', file.file))
+        fetch(urls.appointment.put, {method: 'PUT', body: formData})
+        .then(res => res.json())
+        .then(({message, details}) => {
+            if (details) return $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(details)
+            $('.alert-default .ui-widget-header').removeClass('ui-helper-hidden').text(message)
+        })
+        .catch(({message}) => $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message))
+    })
 </script>
 
 
