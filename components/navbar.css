@@ -21,6 +21,7 @@
     color: white;
 }
 .navbar-c .navbar-s .close {
+    width: -moz-fit-content;
     width: fit-content;
     height: fit-content;
     border: unset;

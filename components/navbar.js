@@ -7,8 +7,8 @@ Navbar.html = $(`
 	<nav>
 		<button class="close">&times;</button>
 		<ul>
-			<li><a href="./index.html">New Project</a></li>
-			<li><a href="./biography.html">Biography</a></li>
+			<li><a href="./index.html">Featured</a></li>
+			<li><a href="./biography.html">Biography & Contact</a></li>
 			<li><a href="./gallery.html">Gallery</a></li>
 			<li><a href="./software.html">Software</a></li>
 		</ul>

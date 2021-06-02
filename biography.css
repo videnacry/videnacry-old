@@ -20,6 +20,7 @@ body{
 }
 .biography-p .backdrop-blur-y, .backdrop-blur-x {
     position: absolute;
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
 .biography-p .backdrop-blur-y {
