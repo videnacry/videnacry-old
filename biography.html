@@ -81,26 +81,27 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
 
 <!-----------------------------------------------------BIOGRAPHY----------------------------------------------------------------->
 
-
-<article class="biography-s ui-widget-content ui-corner-all">
-    <div style="left: -6vmin; top: 0; margin-top: -12vmin" class="backdrop-blur-y"></div>
-    <div style="left: -6vmin; bottom: 0; margin-bottom: -12vmin" class="backdrop-blur-y"></div>
-    <div style="left: 0; top: 0; margin-left: -7vmin" class="backdrop-blur-x backdrop-blur-left"></div>
-    <div style="right: 0; top: 0; margin-right: -7vmin" class="backdrop-blur-x backdrop-blur-rigth"></div>
-    <h1>Berón Gamboa</h1>
-    <hr/>
-    <h2>Biography</h2>
-    <section>
-        <div class="img-space"></div>
-        <article>
-            <header>Doodle artist</header>
-            <p>I love drawing new shapes. Since I can remember I wanted to see on paper what I should draw.</p>
-            <p>I love science fiction so magic, occultism, ghosts, demons, angels, mental power... now these themes are my strongest inspiration.</p>
-            <p>I want to make meaningful drawings in the near future, share ideas in such an amazing drawing, as to make it easy to remember.</p>
-        </article>
-    </section>
-    <img class="ui-corner-all" src="./public/img/biography/me.png"/>
-</article>
+<div class="card">
+    <div class="backdrop-blur-y"></div>
+    <div class="backdrop-blur-x"></div>
+    <article class="biography-s ui-widget-content ui-corner-all">
+        <h1>Berón Gamboa</h1>
+        <hr/>
+        <h2>Biography</h2>
+        <section>
+            <div class="img-space"></div>
+            <article>
+                <header>Doodle artist</header>
+                <p>I love drawing new shapes. Since I can remember I wanted to see on paper what I should draw.</p>
+                <p>I love science fiction so magic, occultism, ghosts, demons, angels, mental power... now these themes are my strongest inspiration.</p>
+                <p>I want to make meaningful drawings in the near future, share ideas in such an amazing drawing, as to make it easy to remember.</p>
+            </article>
+        </section>
+        <img class="ui-corner-all" src="./public/img/biography/me.png"/>
+    </article>
+    <div class="backdrop-blur-x"></div>
+    <div class="backdrop-blur-y"></div>
+</div>
 <br/>
 
 
@@ -110,52 +111,53 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
 <!--------------------------------------------------------CONTACT----------------------------------------------------------------->
 
 
-
-<form class="biography-s ui-widget-content ui-corner-all">
-    <div style="left: -6vmin; top: 0; margin-top: -12vmin" class="backdrop-blur-y"></div>
-    <div style="left: -6vmin; bottom: 0; margin-bottom: -12vmin" class="backdrop-blur-y"></div>
-    <div style="left: 0; top: 0; margin-left: -7vmin" class="backdrop-blur-x"></div>
-    <div style="right: 0; top: 0; margin-right: -7vmin" class="backdrop-blur-x"></div>
-    <h2>Request a  picture!!!</h2>
-    <hr/>
-    <h3>Contact information</h3>
-    <div class="form-group-row">
+<div class="card">
+    <div class="backdrop-blur-y"></div>
+    <div class="backdrop-blur-x"></div>
+    <form class="biography-s ui-widget-content ui-corner-all">
+        <h2>Request a  picture!!!</h2>
+        <hr/>
+        <h3>Contact information</h3>
+        <div class="form-group-row">
+            <fieldset class="input-text-group">
+                <label for="contact-name"><small>Name</small></label>
+                <input name="name" id="contact-name" type="text" class="ui-corner-all">
+            </fieldset>
+            <fieldset class="input-text-group">
+                <label for="contact-email"><small>Email</small></label>
+                <input name="email" id="contact-email" type="text" class="ui-corner-all">
+            </fieldset>
+        </div>
         <fieldset class="input-text-group">
-            <label for="contact-name"><small>Name</small></label>
-            <input name="name" id="contact-name" type="text" class="ui-corner-all">
+            <label for="contact-message"><small>Message</small></label>
+            <textarea name="message" id="contact-message" class="ui-corner-all"></textarea>
         </fieldset>
-        <fieldset class="input-text-group">
-            <label for="contact-email"><small>Email</small></label>
-            <input name="email" id="contact-email" type="text" class="ui-corner-all">
-        </fieldset>
-    </div>
-    <fieldset class="input-text-group">
-        <label for="contact-message"><small>Message</small></label>
-        <textarea name="message" id="contact-message" class="ui-corner-all"></textarea>
-    </fieldset>
-    <h3>Expected delivery date range</h3>
-    <label class="alert-highlight">
-        <p class="ui-state-highlight ui-corner-all">The default max date is 40 days from now, unless you select a max date 20 or more days from now. Same goes for min date, it would be 10 days from now or above. In case the delivery can not be for that date you'll be notified!</p>
-    </label>
-    <div class="date-range">
-        <div class="datepicker"></div>
-        <div class="datepicker"></div>
-    </div>
-    <h3>Reference images</h3>
-    <label class="alert-default">
-        <p class="ui-state-highlight ui-corner-all">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
-    </label>
-	<div class="file-gallery"></div>
-    <br/>
-    <label class="alert-default">
-        <p class="ui-state-error ui-corner-all ui-helper-hidden"></p>
-    </label>
-    <label class="alert-default">
-        <p class="ui-corner-all ui-widget-header ui-helper-hidden"></p>
-    </label>
-    <br/>
-    <input class="ui-button ui-state-disabled" type="submit" value="Send" disabled>
-</form>
+        <h3>Expected delivery date range</h3>
+        <label class="alert-highlight">
+            <p class="ui-state-highlight ui-corner-all">The default max date is 40 days from now, unless you select a max date 20 or more days from now. Same goes for min date, it would be 10 days from now or above. In case the delivery can not be for that date you'll be notified!</p>
+        </label>
+        <div class="date-range">
+            <div class="datepicker"></div>
+            <div class="datepicker"></div>
+        </div>
+        <h3>Reference images</h3>
+        <label class="alert-default">
+            <p class="ui-state-highlight ui-corner-all">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
+        </label>
+        <div class="file-gallery"></div>
+        <br/>
+        <label class="alert-default">
+            <p class="ui-state-error ui-corner-all ui-helper-hidden"></p>
+        </label>
+        <label class="alert-default">
+            <p class="ui-corner-all ui-widget-header ui-helper-hidden"></p>
+        </label>
+        <br/>
+        <input class="ui-button ui-state-disabled" type="submit" value="Send" disabled>
+    </form>
+    <div class="backdrop-blur-x"></div>
+    <div class="backdrop-blur-y"></div>
+</div>
 <!--
     Read the "Getting Started Guide" at http://docs.fineuploader.com/quickstart/01-getting-started.html
     if you are not yet familiar with Fine Uploader UI.
