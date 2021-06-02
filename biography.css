@@ -28,7 +28,7 @@ body{
 }
 .biography-p .card .backdrop-blur-y {
     width: 100%;
-    height: 7vmin;
+    height: 8vh;
 }
 .biography-p .card .backdrop-blur-x {
     width: 5%;
@@ -42,6 +42,10 @@ body{
     background-color: #ffffff80;
     box-shadow: 0 0 5vmin black;
 }
+.biography-p .biography-s>header {
+    width: 95%;
+    position: absolute;
+}
 .biography-p .biography-s h1 {
     font-size: 3em;
 }
@@ -54,12 +58,15 @@ body{
 .biography-p .biography-s section article {
     box-sizing: border-box;
     flex-grow: 1;
-    min-width: 280px;
     width: 15vmin;
 }
+.biography-p .biography-s section .header-space {
+    opacity: 0;
+}
+/*-----------------------Relation height/width is 74.80%----------------------------*/
 .biography-p .biography-s .img-space {
-    height: calc(70vmin - 200px);
-    width: 85vmin;
+    height: 70vmin;
+    width: 93.56vmin;
 }
 .biography-p .biography-s img {
     height: 70vmin;
@@ -118,32 +125,32 @@ body{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
     .biography-p .biography-s section article {
         width: 100%;
+    }
+    .biography-p .biography-s section .header-space {
+        display: none;
     }
 }
 @media screen and (max-width: 800px) {
     .biography-p .biography-s img {
-        max-width: 90%;
+        width: 75vw;
         height: auto;
         top: calc(98px + 5vmin);
     }
     .biography-p .biography-s .img-space {
-        max-width: 90%;
-        max-height: 50vw;
-        height: calc(70vmin - 8em);
+        width: 75vw;
+        height: 56.1vw;
+        margin-top: calc(98px + 5vmin);
     }
 }
 @media screen and (max-width: 460px) {
     .biography-p .biography-s img {
-        max-width: 90%;
-        height: 70vmin;
-        height: auto;
-        margin: 5px;
-        position: absolute;
         top: calc(98px + 3em + 8vmin);
-        right: 0;
+    }
+    .biography-p .biography-s .img-space {
+        margin-top: calc(98px + 8vmin + 3em);
     }
 }
 @media screen and (max-width: 400px) {
@@ -156,9 +163,15 @@ body{
     .biography-p .biography-s img {
         top: calc(98px + 1em);
     }
+    .biography-p .biography-s .img-space {
+        margin-top: calc(98px + 1em);
+    }
 }
 @media screen and (max-width: 385px) {
     .biography-p .biography-s img {
         top: calc(98px + 4em);
+    }
+    .biography-p .biography-s .img-space {
+        margin-top: calc(98px + 4em);
     }
 }
