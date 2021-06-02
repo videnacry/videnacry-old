@@ -118,7 +118,7 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
     <div style="left: -6vmin; bottom: 0; margin-bottom: -12vmin" class="backdrop-blur-y"></div>
     <div style="left: 0; top: 0; margin-left: -7vmin" class="backdrop-blur-x"></div>
     <div style="right: 0; top: 0; margin-right: -7vmin" class="backdrop-blur-x"></div>
-    <h2>Request a  draw!!!</h2>
+    <h2>Request a  picture!!!</h2>
     <hr/>
     <h3>Contact information</h3>
     <div class="form-group-row">
@@ -135,11 +135,14 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
         <label for="contact-message"><small>Message</small></label>
         <textarea name="message" id="contact-message" class="ui-corner-all"></textarea>
     </fieldset>
-    <h3>Expected delivery date</h3>
+    <h3>Expected delivery date range</h3>
     <label class="alert-highlight">
-        <p class="ui-state-highlight ui-corner-all">The default date is 30 days from now, unless you select a date 10 or more days from now.</p>
+        <p class="ui-state-highlight ui-corner-all">The default max date is 40 days from now, unless you select a max date 20 or more days from now. Same goes for min date, it would be 10 days from now or above. In case the delivery can not be for that date you'll be notified!</p>
     </label>
-	<div class="datepicker"></div>
+    <div class="date-range">
+        <div class="datepicker"></div>
+        <div class="datepicker"></div>
+    </div>
     <h3>Reference images</h3>
     <label class="alert-default">
         <p class="ui-state-highlight ui-corner-all">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
@@ -147,10 +150,10 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
 	<div class="file-gallery"></div>
     <br/>
     <label class="alert-default">
-        <p class="ui-state-error ui-corner-all ui-helper-hidden">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
+        <p class="ui-state-error ui-corner-all ui-helper-hidden"></p>
     </label>
     <label class="alert-default">
-        <p class="ui-corner-all ui-widget-header ui-helper-hidden">Just would be uploaded 5 images and if image size is more than 2MB(megabytes) would be bad upload, meaning it would updload uncomplete.</p>
+        <p class="ui-corner-all ui-widget-header ui-helper-hidden"></p>
     </label>
     <br/>
     <input class="ui-button ui-state-disabled" type="submit" value="Send" disabled>
@@ -222,15 +225,36 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
 </script>
 
 <script>
-    fetch(urls.appointment.getStatus, {method: 'GET'})
-    .then(res => res.json())
-    .then(({isFull, message}) => {
-        if (!isFull) return $('input:submit').prop('disabled', false).removeClass('ui-state-disabled')
-        $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message)
-    })
-    .catch(({message, details}) => $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message))
+    const defaultMinDate = new Date()
+    defaultMinDate.setDate(defaultMinDate.getDate() + 10)
+    $('.biography-p form .datepicker').datepicker().first().datepicker('setDate', defaultMinDate)
+    const defaultMaxDate = new Date()
+    defaultMaxDate.setDate(defaultMaxDate.getDate() + 40)
+    $('.biography-p form .datepicker').eq(1).datepicker('setDate', defaultMaxDate)
+
+
+
+
+    //-------------------------------------------------GET STATUS OF APPOINTMENTS-----------------------------------------------------------
+    const checkStatus = () => {
+
+        $('input:submit').prop('disabled', true).addClass('ui-state-disabled')
+        $('.alert-default .ui-state-error').addClass('ui-helper-hidden')
+        fetch(urls.appointment.getStatus, {method: 'GET'})
+        .then(res => res.json())
+        .then(({isFull, message}) => {
+            if (!isFull) return $('input:submit').prop('disabled', false).removeClass('ui-state-disabled')
+            $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message)
+        })
+        .catch(({message, details}) => $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(message))
+    }
+    checkStatus()
+
+
+
+
+    //---------------------------------------------------FETCH NEW APPOINTMENT--------------------------------------------------------------
     const canceledFileIds = []
-	$('.biography-p form .datepicker').datepicker()
 	const uploader = new qq.FineUploader({
 		element: $('.biography-p form .file-gallery').get(0),
         callbacks: {
@@ -255,9 +279,12 @@ Navbar.init({fixed: true, variant: 'text-danger', backdropImg: './public/img/bac
         const formData = new FormData(document.forms[0])
         formData.delete('images')
         files.forEach(file => formData.append('images', file.file))
+        formData.append('deliverDateMin', $('.biography-p form .datepicker').first().datepicker('getDate'))
+        formData.append('deliverDateMax', $('.biography-p form .datepicker').eq(1).datepicker('getDate'))
         fetch(urls.appointment.put, {method: 'PUT', body: formData})
         .then(res => res.json())
         .then(({message, details}) => {
+            checkStatus()
             if (details) return $('.alert-default .ui-state-error').removeClass('ui-helper-hidden').text(details)
             $('.alert-default .ui-widget-header').removeClass('ui-helper-hidden').text(message)
         })
