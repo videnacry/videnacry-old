@@ -1,0 +1,91 @@
+.book-cover-c {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    left: 0;
+    overflow: hidden;
+}
+.book-cover-c * {
+    transition: transform 0.5s;
+}
+.book-cover-c.flipped, .featured-p .book-cover-c.flipped>img, .featured-p .book-cover-c.flipped>section {
+    transform: scaleX(-1);
+}
+.book-cover-c>section {
+    position: absolute;
+    right: 50%;
+    overflow-y: auto;
+    background-color: #000000e6;
+    background-blend-mode: multiply;
+    background-attachment: local;
+}
+.book-cover-c>img {
+    max-width: 98.7vw;
+    max-height: 98.7vh;
+    position: absolute;
+    left: 50%;
+}
+@keyframes section-flipped-star-in {
+    0% {z-index: 0; transform: scaleX(-1) translateX(0);}
+    1% {z-index: 1; transform: scaleX(-1) translateX(0);}
+    100% {z-index: 1;transform: scaleX(-1) translateX(-45%);}
+}
+@keyframes section-flipped-star-out {
+    0% {z-index: 0; transform: scaleX(-1) translateX(0);}
+    1% {z-index: 1; transform: scaleX(-1) translateX(0);}
+    100% {z-index: 1;transform: scaleX(-1) translateX(-45%);}
+}
+.book-cover-c.flipped>section.star-out {
+    animation-name: section-flipped-star-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-direction: reverse;
+}
+.book-cover-c.flipped>section.star-in {
+    animation-name: section-flipped-star-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-direction: normal;
+}
+.book-cover-c.flipped>img.star-in {
+    z-index: 1;
+    transform: scaleX(-1) translateX(45%);
+}
+@keyframes section-star-in {
+    0% {z-index: 0; transform: translateX(0);}
+    1% {z-index: 1; transform: translateX(0);}
+    100% {z-index: 1; transform: translateX(45%);}
+}
+@keyframes section-star-out {
+    0% {z-index: 0; transform: translateX(0);}
+    1% {z-index: 1; transform: translateX(0);}
+    100% {z-index: 1; transform: translateX(45%);}
+}
+.book-cover-c>section.star-out {
+    animation-name: section-star-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-direction: reverse;
+}
+.book-cover-c>section.star-in {
+    animation-name: section-star-in;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-direction: normal;
+}
+.book-cover-c>img.star-in {
+    z-index: 1;
+    transform: translateX(-45%);
+}
+.book-cover-c>section>img {
+    max-width: 98vw;
+    max-height: 98vh;
+    opacity: 0;
+}
+.book-cover-c p {
+    padding: 2vh 2vw;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    color: white;
+}
