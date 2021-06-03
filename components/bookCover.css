@@ -1,92 +1,122 @@
 .book-cover-c {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
     position: relative;
     left: 0;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .book-cover-c * {
     transition: transform 0.5s;
 }
-.book-cover-c.flipped, .featured-p .book-cover-c.flipped>img, .featured-p .book-cover-c.flipped>section {
+.book-cover-c>div {
+    display: contents;
+}
+.book-cover-c.flipped, .featured-p .book-cover-c.flipped>div>img, .featured-p .book-cover-c.flipped>div>section {
     transform: scaleX(-1);
 }
-.book-cover-c>section {
+.book-cover-c>div>section {
+    max-width: 100%;
     position: absolute;
     right: 50%;
     overflow-y: auto;
+    overflow-x: hidden;
     background-color: #000000e6;
     background-blend-mode: multiply;
     background-attachment: local;
 }
-.book-cover-c>img {
+.book-cover-c>div>section::-webkit-scrollbar {
+    width: 10px;
+    background-color: black;
+    box-shadow: inset 0 0 5px grey;
+}
+.book-cover-c>div>section::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 5px grey;
+    background-color: white;
+}
+.book-cover-c>div>section::-webkit-scrollbar-button {
+    box-shadow: inset 0 0 5px grey;
+    background-color: white;
+}
+.book-cover-c>div>img  {
     max-width: 98.7vw;
     max-height: 98.7vh;
-    margin: 0 !important;
     position: absolute;
     left: 50%;
 }
 @keyframes section-flipped-star-in {
     0% {z-index: 0; transform: scaleX(-1) translateX(0);}
     1% {z-index: 1; transform: scaleX(-1) translateX(0);}
-    100% {z-index: 1;transform: scaleX(-1) translateX(-45%);}
+    100% {z-index: 1;transform: scaleX(-1) translateX(-50%);}
 }
 @keyframes section-flipped-star-out {
     0% {z-index: 0; transform: scaleX(-1) translateX(0);}
     1% {z-index: 1; transform: scaleX(-1) translateX(0);}
-    100% {z-index: 1;transform: scaleX(-1) translateX(-45%);}
+    100% {z-index: 1;transform: scaleX(-1) translateX(-50%);}
 }
-.book-cover-c.flipped>section.star-out {
+.book-cover-c.flipped>div>section.star-out {
     animation-name: section-flipped-star-out;
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-direction: reverse;
 }
-.book-cover-c.flipped>section.star-in {
+.book-cover-c.flipped>div>section.star-in {
     animation-name: section-flipped-star-in;
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-direction: normal;
 }
-.book-cover-c.flipped>img.star-in {
+.book-cover-c.flipped>div>img.star-in {
     z-index: 1;
-    transform: scaleX(-1) translateX(45%) !important;
+    transform: scaleX(-1) translateX(50%) !important;
 }
 @keyframes section-star-in {
     0% {z-index: 0; transform: translateX(0);}
     1% {z-index: 1; transform: translateX(0);}
-    100% {z-index: 1; transform: translateX(45%);}
+    100% {z-index: 1; transform: translateX(50%);}
 }
 @keyframes section-star-out {
     0% {z-index: 0; transform: translateX(0);}
     1% {z-index: 1; transform: translateX(0);}
-    100% {z-index: 1; transform: translateX(45%);}
+    100% {z-index: 1; transform: translateX(50%);}
 }
-.book-cover-c>section.star-out {
+.book-cover-c>div>section.star-out {
     animation-name: section-star-out;
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-direction: reverse;
 }
-.book-cover-c>section.star-in {
+.book-cover-c>div>section.star-in {
     animation-name: section-star-in;
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-direction: normal;
 }
-.book-cover-c>img.star-in {
+.book-cover-c>div>img .star-in {
     z-index: 1;
-    transform: translateX(-45%) !important;
+    transform: translateX(-50%) !important;
 }
-.book-cover-c>section>img {
-    max-width: 98vw;
+.book-cover-c>div>section>img {
+    max-width: 94vw;
     max-height: 98vh;
     opacity: 0;
 }
 .book-cover-c p {
-    padding: 2vh 2vw;
+    padding: 5vh 5vmin;
     margin: 0;
     position: absolute;
     top: 0;
     color: white;
+}
+
+@media screen and (max-width: 530px) {
+    .book-cover-c p {
+        padding: 5vh 5vw;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        color: white;
+    }
 }
