@@ -20,7 +20,7 @@
     backdrop-filter: blur(2px) brightness(1.2);
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
     .gallery-p {
         padding: 0;
         margin: 0;

@@ -94,7 +94,7 @@
     animation-fill-mode: both;
     animation-direction: normal;
 }
-.book-cover-c>div>img .star-in {
+.book-cover-c>div>img.star-in {
     z-index: 1;
     transform: translateX(-50%) !important;
 }
