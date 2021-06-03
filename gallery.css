@@ -1,4 +1,9 @@
 .gallery-p {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     background-position-x: center;
 }
 .gallery-p .navbar-toggler_space {
@@ -13,4 +18,14 @@
     box-shadow: 0 0 1vw;
     -webkit-backdrop-filter: blur(2px) brightness(1.2);
     backdrop-filter: blur(2px) brightness(1.2);
+}
+
+@media screen and (max-width: 350px) {
+    .gallery-p {
+        padding: 0;
+        margin: 0;
+    }
+    .gallery-p .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+        padding: .5em;
+    }
 }
