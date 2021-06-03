@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
-	<title>Videnacry - New</title>
+	<title>Videnacry - Featured</title>
 
 
 	<!-- JQUERY-UI CSS file-->
@@ -19,6 +19,7 @@
 	<!-- Own CSS files -->
 	<link href="./index.css" rel="stylesheet">
 	<link href="./components/navbar.css" rel="stylesheet">
+	<link href="./components/bookCover.css" rel="stylesheet">
 
 
 	<!-- Magnific Popup core CSS file -->
@@ -37,10 +38,11 @@
 	
 	
 </head>
-<body class="ui-widget">
+<body class="featured-p ui-widget">
 
 
-<!-------------------------------------------------------BACKGROUND---------------------------------------------------------->
+<!-------------------------------------------------------BACKGROUND----------------------------------------------------------->
+
 
 <div class="background" style="background-image: url(./public/img/dinosaurflip.jpg),  url(./public/img/dinosaur.jpg)"></div>
 
@@ -61,15 +63,13 @@ Navbar.init({})
 
 
 
-<!-----------------------------------------------------CARROUSEL----------------------------------------------------------->
+<!--------------------------------------------------------CARROUSEL----------------------------------------------------------->
 
 
 <div id="carrousel"></div>
 <br/>
 <div id="carrousel-nav" class="carrousel-nav"></div>
 <br/>
-
-
 
 <script>
 
@@ -132,5 +132,33 @@ $("#carrousel-nav").css('width', '95vmin').slick({
 
 
 </script>
+
+
+
+
+<!-----------------------------------------------------BIG PROJECTS---------------------------------------------------------->
+
+
+<div id="role"></div>
+<div id="awareness"></div>
+<div id="mage"></div>
+<div id="environment"></div>
+
+<script src='./components/bookCover.js'>
+</script>
+<script>
+const roleStory = 'En nuestra realidad siempre encontraremos que existen caminos opuestos en cuanto a su objetivo, de este modo se rige lo que conocemos y lo usamos para llegar a obtener algo (una bebida dulce por ejemplo), pero estos caminos que cruzamos nos llevan a buscar otro (una bebida amarga) o seguir por uno de sus similares (una bebida muy dulce) y los caminos nos van formando, para comprender la trascendencia de esto vasta con saber que "elegir" es un camino y con esto en cuenta,  descubrimos en este cuadro que habla sobre el camino utilizando por medida al ser humano, que cada color representa un camino y el cambio de ser una cosa a otra viene dado por la forma (el hombre azul (soso en caso que subsita) en león (animal que vive por la naturaleza); el feto rojo (ser del que poco depende su vida) en bebe (qué ya puede llorar enérgicamente) y el mismo conjunto es algo que comenzó siendo un tren sobre las ruedas de un tren invertido (transportes qué crecen por lo que llevan y son impulsados el uno por el otro (como las armas y los escudos)), para terminar diré que el verde representa a la naturaleza, el rojo al autocomplacimiento, el azul al rechazo qué es movido por el instinto de supervivencia, el negro a la libre elección (sobreponiendose incluso a lo natural, por ello lleva una forma tan rara y hace de arma y cura,  utiliza las nociones abstractas de lo que percibe), el café al conflicto (a favor y en contra, permanece en  estado contemplativo a través de sus gafas), y el blanco es el infinito qué se puede encontrar en todas partes y contener en palabras... Eres libre de analizar el cuadro con y sin las luces que te he dado, puedes tambi&eacute;n contactarme.'
+bookCover.init({imgSrc: './public/img/backdrop/Role.jpg', selector: '#role', story: roleStory})
+
+const awarenessStory = 'Continuando con los contenedores (objeto que lleva las características, propiedades, nombres... ) y sus contenidos vamos a enfocarnos en la realidad que se crea un sujeto,  de modo que el se describe bajo el conocimiento que posee y con ello interactuar con el medio que le rodea (al cual también crea con sus descripciones), así obtenemos a una persona fuerte en un medio pasivo y también otras mezclas de lo más variadas oh sorpresa! Que las descripciones, significados y palabras en si resultan una creación en el mejor de los casos grupal (en favor a la sociedad) y eso que lleva con sigo un porcentaje!, afortunadamente descubrimos qué siempre podemos cambiar con solo crear una nueva realidad pero esta viene dada en niveles, porque no es lo mismo el mundo mental y el físico pero si qué tiene repercusión el uno en el otro (un niño que se considera un adulto por elemplo) aunque no parezca muy notable,  y eso aveces por no ver el futuro,  además, las realidades que podemos crear también vienen dadas por lo que conocemos o ¿es qué  una persona nace sabiendo?, en fin, descubriremos qué en el cuadro los niveles se encuentran bien diferenciados y no sólo por una barrera con forma de arco si no también por su contenido, el cual fue escogido por una razón, estos niveles son los niveles de un ser, se encuentran basados en su realidad, la cual cuando se trata de un conjunto crítico ya no sólo depende él, pues se utiliza la noción qué tienen los espectadores, entonces las qué podrían ser circunferencias se encuentran cortadas por una cabeza respectivamente, la cual representa al portador de dicha realidad, como portador el usuario se encuentra más cercano a la realidad limitada por la circunferencia qué corto, pero aún así se ve afectado por la realidad que su realidad contiene lo que significa que en cualquier momento puede subir o bajar de nivel y que poco o nada percibe los niveles más bajos aún  cuando los posee, disculpándome por lo largo del texto diré que es conveniente el contenedor más grande por su falta de restricciones... Y con esto podemos continuar al último cuadro.'
+bookCover.init({imgSrc: './public/img/backdrop/Awareness.jpg', selector: '#awareness', story: awarenessStory, flip: true})
+
+const mageStory = 'Habiendo quedado claro que la libertad se encontraba en la ausencia de contenedor y los viajes cambiaban al ser queda por descubrir cual es su mayor ventaja lo cual está relacionada con el obtener cosas y tenerlas, porque sin contenedor no hay restricción sobre lo que te pertenece y con los viajes interactuas con lo que te rodea, y esto sucede todo el tiempo en todas partes y con todas las cosas pero esto podría dar falso, así llegamos a lo verdaderamente importante de este cuadro, cuando nos referimos al contenido de este cuadro validar, negar y hacer participe de ambos a un mismo objeto es totalmente válido porque nos hemos de acercar a lo divino qué posee todo cuanto pueda y no existir, y se ha revelado el objetivo final, la representación de una realidad superior, que se encuentra en todas partes y somos todos, y como acercarnos a ella, para esto último podemos observar que en la imagen se encuentran 3 cabezas, la del extremo inferior derecho nos habla de lo que muchos percibimos, el mundo "real", la de la esquina izquierda inferior representa todos nuestros otro yo, nuestras múltiples apariencias de las que podemos o no ser consientes y la última (y más borrosa) se encuentra centrada en el extremo superior y es el todo y nada, el único y múltiple... Y ¿Cómo llegamos allí? ¿Qué podemos hacer allí? Para alcanzar el punto (siendo práctico) es suficiente con que te liberes del contenedor (notarás qué se han dibujado partes del cuerpo para representar los cinco sentidos, para crear un contenedor menos restrictivo con respecto a tu cuerpo puedes probar a ver lo que quizás no está allí y lo mismo con los demás sentidos, tan fácil como ver figuras en las nubes) y tomes el viaje para su obtención (todo esta en todo), aunque en otro nivel de conciencia tu siempre estuviste allí, para concluir, allí se puede hacer todo y nada (las regresiones a puntos anteriores es inevitable) pero lo más interesante aquí es la creación de algo con la nada (para ser práctico, sin llegar a la cabeza principal, al percibir lo que quizás no esté allí, es tu voluntad la qué le da forma, olor, sabor, etc. Y así creas algo que percibes con tus cinco sentidos) '
+bookCover.init({imgSrc: './public/img/backdrop/Mage.jpg', selector: '#mage', story: mageStory})
+
+const environmentStory = 'Concluido el viaje que desembocaría para muchos en graves problemas para pertenecer a la bella sociedad cuyo fin no es otro que la obtención de poder, quiero dejar claro que como una ecuación siempre puede ser igual a 0, nuestro destino es añadir tantos elementos como nos sea posible sin miedo alguno, porque la cantidad siempre será la misma y esto nos dice que hagamos lo que hagamos no llegaremos a dejar los valores solo en una cantidad, y es más, ¿acaso no estamos todos creando castillos sobre la nada? El fin de este lienzo es crear sobre algo, así, para terminar con él es necesario rebasar 1=1 por un 1235428745...=0 y después =1 nuestra realidad entonces participa de la recursividad, vamos,  qué hay que superar el juego reglamentado porque si no, se escatima con lo que se puede dar, qué mejor que apreciar las distintas formas qué pueden presentarse debido a la libertad que nos fue otorgada y rechazamos por los peligros que supone, además de la belleza que dificulta, y eso sin contar con los malentendidos qué genera, tan solo en las palabras podemos encontrar motivo de guerra, entonces que mejor que recordar que no hemos nacido con un atlas de la comunicación en la cabeza, qué nos sepa mostrar a todos un mismo valor, resulta importante en un mundo como este saber querer conocer y comprender a la persona y sus acciones (incluidas palabras)  antes que compararla para llenar con quienes se nos presenten, largas listas de aprobación y desdén. '
+bookCover.init({imgSrc: './public/img/backdrop/Environment.jpg', selector: '#environment', story: environmentStory, flip: true})
+</script>
+
 </body>
 </html>
