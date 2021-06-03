@@ -36,7 +36,8 @@
 	<script src="plugins\slick-1.8.1\slick\slick.min.js"></script>
 	
 	
-	
+	<!-- Stellar JS file -->
+	<script src="plugins/stellars.min.js"></script>
 </head>
 <body class="featured-p ui-widget">
 
@@ -143,7 +144,6 @@ $("#carrousel-nav").css('width', '95vmin').slick({
 <div id="awareness"></div>
 <div id="mage"></div>
 <div id="environment"></div>
-
 <script src='./components/bookCover.js'>
 </script>
 <script>
@@ -158,6 +158,42 @@ bookCover.init({imgSrc: './public/img/backdrop/Mage.jpg', selector: '#mage', sto
 
 const environmentStory = 'Concluido el viaje que desembocaría para muchos en graves problemas para pertenecer a la bella sociedad cuyo fin no es otro que la obtención de poder, quiero dejar claro que como una ecuación siempre puede ser igual a 0, nuestro destino es añadir tantos elementos como nos sea posible sin miedo alguno, porque la cantidad siempre será la misma y esto nos dice que hagamos lo que hagamos no llegaremos a dejar los valores solo en una cantidad, y es más, ¿acaso no estamos todos creando castillos sobre la nada? El fin de este lienzo es crear sobre algo, así, para terminar con él es necesario rebasar 1=1 por un 1235428745...=0 y después =1 nuestra realidad entonces participa de la recursividad, vamos,  qué hay que superar el juego reglamentado porque si no, se escatima con lo que se puede dar, qué mejor que apreciar las distintas formas qué pueden presentarse debido a la libertad que nos fue otorgada y rechazamos por los peligros que supone, además de la belleza que dificulta, y eso sin contar con los malentendidos qué genera, tan solo en las palabras podemos encontrar motivo de guerra, entonces que mejor que recordar que no hemos nacido con un atlas de la comunicación en la cabeza, qué nos sepa mostrar a todos un mismo valor, resulta importante en un mundo como este saber querer conocer y comprender a la persona y sus acciones (incluidas palabras)  antes que compararla para llenar con quienes se nos presenten, largas listas de aprobación y desdén. '
 bookCover.init({imgSrc: './public/img/backdrop/Environment.jpg', selector: '#environment', story: environmentStory, flip: true})
+
+$('body').stellar({
+  // Set scrolling to be in either one or both directions
+  verticalScrolling: true,
+
+  // Set the global alignment offsets
+  verticalOffset: 0,
+
+  // Refreshes parallax content on window load and resize
+  responsive: true,
+
+  // Select which property is used to calculate scroll.
+  // Choose 'scroll', 'position', 'margin' or 'transform',
+  // or write your own 'scrollProperty' plugin.
+  scrollProperty: 'scroll',
+
+  // Select which property is used to position elements.
+  // Choose between 'position' or 'transform',
+  // or write your own 'positionProperty' plugin.
+  positionProperty: 'transform',
+
+  // Enable or disable the two types of parallax
+  parallaxBackgrounds: false,
+  parallaxElements: true,
+
+  // Hide parallax elements that move outside the viewport
+  hideDistantElements: false,
+
+  // Customise how elements are shown and hidden
+  hideElement: function($elem) { 
+	
+	},
+  showElement: function($elem) { 
+	
+	}
+});
 </script>
 
 </body>
