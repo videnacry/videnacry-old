@@ -5,7 +5,7 @@ CarrouselY.init = (backdropImgs = ['Awareness', 'Environment', 'Mage', 'Role']) 
 	const backdropElmt = $('.carrousel-y-c')
 	backdropImgs.forEach(img => {
 		backdropElmt.append(
-			$('<img src="./public/img/backdrop/' + img + '.jpg" style="height: 140vw"/>')
+			$('<img src="./public/img/magicVertical/' + img + '.jpg" style="height: 140vw"/>')
 		)
 	})
 	backdropElmt.slick({
